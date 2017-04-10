@@ -7,8 +7,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 
 import { HomeComponent } from './pages/home/home.component';
-import {AuthService} from "./services/auth.service";
 import {LoginComponent} from "./pages/login/login.component";
+
+import {AuthService} from "./services/auth.service";
+import {UserService} from "./services/user.service";
+import {BetService} from "./services/bet.service";
 
 @NgModule({
   declarations: [
@@ -24,7 +27,9 @@ import {LoginComponent} from "./pages/login/login.component";
     RouterModule.forRoot(rootRouterConfig, { useHash: true })
   ],
   providers: [
-    AuthService
+    AuthService,
+    BetService,
+    UserService
   ],
   bootstrap: [ AppComponent ]
 })
