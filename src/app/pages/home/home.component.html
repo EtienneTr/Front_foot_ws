@@ -110,5 +110,27 @@
 </section><!--/ Service box end -->
 
 <section id="betting">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 heading">
+        <span class="title-icon pull-left"><i class="fa fa-star"></i></span>
+        <h2 class="title">Nos derniers paris gagnants</h2>
+      </div>
+    </div><!-- Title row end -->
+
+    <!-- Bets ROW -->
+    <div class="row" *ngFor="let bet of bets">
+      <div class="col-md-12 col-sm-12">
+        <div class="ts-testimonial-content">
+          {{ bet.homeTeam - bet.awayTeam }}
+        </div><!-- Testimonial content end -->
+
+      </div><!-- End col-md-6 -->
+
+    </div>
+
+
+  </div>
+
 
 </section>

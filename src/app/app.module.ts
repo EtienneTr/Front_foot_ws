@@ -17,6 +17,7 @@ import {ProfileComponent} from "./pages/profile/profile.component";
 
 import { User } from './models/user.model';
 import {SecurService} from "./services/secur.service";
+import {Bets} from "./models/bets.model";
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import {SecurService} from "./services/secur.service";
     BetService,
     UserService,
     User,
+    Bets,
     SecurService
   ],
   bootstrap: [ AppComponent ]
