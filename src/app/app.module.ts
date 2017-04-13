@@ -12,12 +12,18 @@ import {LoginComponent} from "./pages/login/login.component";
 import {AuthService} from "./services/auth.service";
 import {UserService} from "./services/user.service";
 import {BetService} from "./services/bet.service";
+import {RegisterComponent} from "./pages/register/register.component";
+import {ProfileComponent} from "./pages/profile/profile.component";
+
+import { User } from './models/user.model';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +35,8 @@ import {BetService} from "./services/bet.service";
   providers: [
     AuthService,
     BetService,
-    UserService
+    UserService,
+    User
   ],
   bootstrap: [ AppComponent ]
 })
