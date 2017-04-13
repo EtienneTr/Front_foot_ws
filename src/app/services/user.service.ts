@@ -36,10 +36,10 @@ export class UserService {
   }
 
   //return roken
-  updateUser(user: User){
-    let createUrl = this.baseUrl + '/update/';
-    let bodyString = JSON.stringify(User);
-    let headers    = new Headers({ 'Content-Type': 'application/json', 'Authorization': 'bearer ' + user.token });
+  updateUser(user: User, token: string){
+    let createUrl = this.baseUrl + '/update';
+    let bodyString = JSON.stringify(user);
+    let headers    = new Headers({ 'Content-Type': 'application/json', 'Authorization': 'bearer ' + token });
     let options    = new RequestOptions({ headers: headers });
 
     return this.http.put(createUrl, bodyString, options).map((response: Response) => response.json());

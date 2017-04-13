@@ -1,6 +1,20 @@
+<div id="banner-area">
+  <img src="../../../app/public/images/banner/banner-profil.jpg" alt ="" />
+  <div class="parallax-overlay"></div>
+  <!-- Subpage title start -->
+  <div class="banner-title-content">
+    <div class="text-center">
+      <h2>Votre profil</h2>
+      <ul class="breadcrumb">
+        <li>Home</li>
+        <li><a href="#">profil</a></li>
+      </ul>
+    </div>
+  </div><!-- Subpage title end -->
+</div><!-- Banner area end -->
 
-<h3>Votre profil</h3>
-<div class="col-md-10 co-offset-3">
+<div class="container">
+<div class="col-md-10 co-offset-3" id="formprofile">
   <form name="form" (ngSubmit)="onUpdateSubmit()" [formGroup]="profileForm">
     <div class="form-group row">
       <label class="col-sm-2">Nom :</label>
@@ -23,7 +37,7 @@
         <input *ngIf="editing" class="form-control" name="email" formControlName="email" type="email" placeholder="Mail" value="{{user.email}}" required/>
       </div>
     </div>
-    <div class="form-group">
+    <div class="form-group" id="buttonProfile">
       <label (click)="onClickEdit()" class="btn btn-primary">{{ buttonEdit }}</label>
       <button *ngIf="editing" class="btn btn-primary" type="submit">Modifier</button>
     </div>
@@ -32,4 +46,5 @@
   <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
   <div *ngIf="succesMsg" class="alert alert-success">{{ succesMsg }}</div>
 
+</div>
 </div>

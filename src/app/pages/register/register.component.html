@@ -1,3 +1,21 @@
+<div id="banner-area">
+  <img src="../../../app/public/images/banner/banner-register.jpg" alt ="" />
+  <div class="parallax-overlay"></div>
+  <!-- Subpage title start -->
+  <div class="banner-title-content">
+    <div class="text-center">
+      <h2>S'enregistrer</h2>
+      <ul class="breadcrumb">
+        <li>Home</li>
+        <li><a href="#">enregistrement</a></li>
+      </ul>
+    </div>
+  </div><!-- Subpage title end -->
+</div><!-- Banner area end -->
+
+<div class="container" id="formregister">
+  <h3>Veuillez compléter le formulaire pour vous enregistrer :</h3>
+  <br><br>
 <div class="col-md-10 co-offset-3">
   <form name="form" (ngSubmit)="onRegisterSubmit()" [formGroup]="registerForm">
     <div class="form-group row">
@@ -31,4 +49,5 @@
 
   <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
 
+</div>
 </div>

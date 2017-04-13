@@ -1,9 +1,23 @@
-<h3>Projet Pronos - Login</h3>
-<p>
-  Veuillez indiquer vos identifiants
-</p>
+<div id="banner-area">
+  <img src="../../../app/public/images/banner/banner-login.jpg" alt ="" />
+  <div class="parallax-overlay"></div>
+  <!-- Subpage title start -->
+  <div class="banner-title-content">
+    <div class="text-center">
+      <h2>Login</h2>
+      <ul class="breadcrumb">
+        <li>Home</li>
+        <li><a href="#">login</a></li>
+      </ul>
+    </div>
+  </div><!-- Subpage title end -->
+</div><!-- Banner area end -->
 
-<div class="container">
+<div class="container" id="formLogin">
+  <h3>
+    Veuillez indiquer vos identifiants.
+  </h3>
+  <br/><br/>
   <form name="form" (ngSubmit)="onLoginSubmit()" [formGroup]="userForm">
     <div class="form-group row">
       <label class="col-sm-2">Adresse mail</label>
@@ -24,9 +38,7 @@
 
   <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
 
-</div>
-
-<div class="container">
+  <br/><br/>
   <h3>Pas encore de compte chez nous ?</h3>
   <a class="btn btn-primary" [routerLink]="['/register']">Enregistrez-vous !</a>
 </div>

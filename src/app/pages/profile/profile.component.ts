@@ -19,6 +19,7 @@ export class ProfileComponent implements OnInit {
   //edit bool
   editing = false;
   buttonEdit = "";
+  token = "";
 
   constructor(public formBuilder: FormBuilder,
               private router: Router,
@@ -28,13 +29,12 @@ export class ProfileComponent implements OnInit {
 
     var loggedUser = JSON.parse(localStorage.getItem("loggeduser"));
 
-    user.token = loggedUser && loggedUser.token;
+    this.token = loggedUser && loggedUser.token;
     user.email = loggedUser && loggedUser.usermail;
     this.buttonEdit = "Éditer le profil";
-    console.log(user.token);
 
     //get user
-    this.loginService.getUser(user.token)
+    this.loginService.getUser(this.token)
       .subscribe(data => {
         console.log(data);
         this.user = data;
@@ -56,16 +56,16 @@ export class ProfileComponent implements OnInit {
     if(formValues.firstname) this.user.firstname = formValues.firstname;;
     if(formValues.email)      this.user.email = formValues.email;
 
-    console.log(this.user)
-    this.loginService.updateUser(this.user)
+    this.loginService.updateUser(this.user, this.token)
       .subscribe(data => {
-          if(data && data.status === 200) {
+        console.log(data);
+          if(data && data === true) {
             //no edit status
             this.editing = false;
             this.buttonEdit = "Éditer le profil";
             this.succesMsg = "Modification effectuée avec succès";
             //update values
-            this.user = data.user;
+            //this.user = data.user;
 
             //if update username => need login
             if(this.user.name !== JSON.parse(localStorage.getItem("loggeduser")).username){
