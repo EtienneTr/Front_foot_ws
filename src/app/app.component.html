@@ -13,7 +13,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <div class="navbar-brand navbar-bg">
+        <div class="navbar-brand navbar-bg goHome">
           <a [routerLink]="['/']">
             <h2 style="color: #fff">DailyPronos</h2>
           </a>
@@ -22,10 +22,11 @@
 
       <nav class="collapse navbar-collapse clearfix" role="navigation">
         <ul class="nav navbar-nav navbar-right">
-          <li><a [routerLink]="['/']">Home</a></li>
-          <li><a [routerLink]="['/profile']">Profile</a></li>
-          <li><a [routerLink]="['/login']">Login</a></li>
-          <li><a [routerLink]="['/register']">Register</a></li>
+          <li class="goHome"><a [routerLink]="['/']">Home</a></li>
+          <li *ngIf="logged"><a [routerLink]="['/profile']">Profile</a></li>
+          <li *ngIf="!logged"><a [routerLink]="['/login']">Connexion</a></li>
+          <li *ngIf="logged"><a [routerLink]="['/login']">Déconnexion</a></li>
+          <li *ngIf="!logged"><a [routerLink]="['/register']">Enregistrement</a></li>
         </ul>
       </nav><!--/ Navigation end -->
     </div><!--/ Row end -->

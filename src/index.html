@@ -74,5 +74,18 @@
     <!-- Template custom -->
     <script type="text/javascript" src="app/public/js/custom.js"></script>
 
+    <script type="text/javascript">
+      //slider load on navigate
+      jQuery(window).load(function() {
+          $('.goHome').click(function() {
+            $('.flexSlideshow').flexslider({
+              slideshowSpeed: 5000,
+              animationSpeed: 600,
+            });
+          });
+      });
+    </script>
+
+
   </body>
 </html>

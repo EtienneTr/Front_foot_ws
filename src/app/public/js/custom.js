@@ -1,10 +1,10 @@
 /*
   * @package Bizcraft
   * @subpackage Bizcraft HTML
-  * 
+  *
   * Template Scripts
   * Created by Tripples
-  
+
    1.    Style Switcher
    2.    Navigation
    3.    Fixed Header
@@ -17,7 +17,7 @@
    10.   Video Background
    11.   Back To Top
 
-  
+
 */
 
 
@@ -51,41 +51,40 @@ jQuery(function($) {
         if( $(window).scrollTop()>100 ){
 
         $('.header').addClass('header-solid animated fadeInDown');
-        } 
+        }
         else {
 
         $('.header').removeClass('header-solid animated fadeInDown');
 
         }
 
-    }); 
+    });
 
    $(window).on('scroll', function(){
 
         if( $(window).scrollTop()>200 ){
 
         $('.header2').addClass('header-bgnone animated fadeInDown');
-        } 
+        }
         else {
 
         $('.header2').removeClass('header-bgnone animated fadeInDown');
 
         }
 
-    }); 
+    });
 
 
-   
+
   /* ----------------------------------------------------------- */
   /*  Main slideshow
   /* ----------------------------------------------------------- */
 
    /* Home 2 */
-   
-   $('.flexSlideshow').flexslider({
-      slideshowSpeed: 5000,           
-      animationSpeed: 600, 
-   });
+  $('.flexSlideshow').flexslider({
+    slideshowSpeed: 5000,
+    animationSpeed: 600,
+  });
 
    /* Home 3 and 4 */
 
@@ -114,12 +113,12 @@ jQuery(function($) {
     //Testimonial
 
     $("#testimonial-carousel").owlCarousel({
- 
+
       navigation : false, // Show next and prev buttons
       slideSpeed : 600,
       pagination:true,
       singleItem:true
- 
+
     });
 
     // Custom Navigation Events
@@ -139,7 +138,7 @@ jQuery(function($) {
     $(".stop").click(function(){
       owl.trigger('owl.stop');
     })
-    
+
 
    //Clients
 
@@ -197,7 +196,7 @@ jQuery(function($) {
         });
       });
 
-     
+
    /* ----------------------------------------------------------- */
    /*  Animation
    /* ----------------------------------------------------------- */
@@ -252,7 +251,7 @@ jQuery(function($) {
     $( window ).on( 'resize', function() {
         resizeVideoBackground();
     });
-    
+
     resizeVideoBackground();
 
    /* ----------------------------------------------------------- */
@@ -274,7 +273,7 @@ jQuery(function($) {
           }, 800);
           return false;
       });
-      
+
       $('#back-to-top').tooltip('hide');
 
 });
