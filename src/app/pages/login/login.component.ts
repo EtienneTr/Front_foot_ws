@@ -40,7 +40,9 @@ export class LoginComponent implements OnInit {
     this.authService.loginUser(mail, pass)
       .subscribe(result => {
           if(result === true){
-            this.router.navigate(['/']);
+            this.router.navigate(['/']).then(function(){
+              window.location.reload();
+            });
           } else {
             this.error = "Mail ou mot de passe incorrecte";
           }},

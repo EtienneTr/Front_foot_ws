@@ -16,6 +16,7 @@ import {RegisterComponent} from "./pages/register/register.component";
 import {ProfileComponent} from "./pages/profile/profile.component";
 
 import { User } from './models/user.model';
+import {SecurService} from "./services/secur.service";
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { User } from './models/user.model';
     AuthService,
     BetService,
     UserService,
-    User
+    User,
+    SecurService
   ],
   bootstrap: [ AppComponent ]
 })
