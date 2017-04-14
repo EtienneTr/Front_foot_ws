@@ -12,15 +12,15 @@ export class Bets {
   id_result: number;
   Odds: {
     id: number,
-    homeBet: number;
-    awayBet: number;
-    drawBet: number;
+    HomeBet: number;
+    AwayBet: number;
+    DrawBet: number;
   };
   Result: {
     id: number,
     goalsHomeTeam: number;
     goalsAwayTeam: number;
-    marchResult: string;
+    matchResult: string;
   };
   Sport: {
     id: number;

@@ -18,7 +18,7 @@ export class BetService {
 
   //return <List Betting>
   getBets(token: string){
-    let createUrl = this.baseUrl + 'betting/getbets';
+    let createUrl = this.baseUrl + 'betting/getbets/2017-04-07';
     let headers    = new Headers({ 'Content-Type': 'application/json', 'Authorization': 'bearer ' + token });
     let options    = new RequestOptions({ headers: headers });
 

@@ -7,17 +7,17 @@ import { BetService } from "../../services/bet.service";
 
 
 @Component({
-  selector: 'home',
-  styleUrls: ['./home.component.css'],
-  templateUrl: './home.component.html'
+  selector: 'pronos',
+  styleUrls: ['./pronos.component.css'],
+  templateUrl: './pronos.component.html'
 })
-export class HomeComponent implements OnInit{
+export class PronosComponent implements OnInit{
   public token: string;
   public usermail: string;
   public bets: Array<Object>;
+  protected error: string;
 
-  constructor(private authservice: AuthService,
-              private betService: BetService){
+  constructor(private betService: BetService){
     var loggedUser = JSON.parse(localStorage.getItem("loggeduser"));
     this.token = loggedUser && loggedUser.token;
     this.usermail = loggedUser && loggedUser.usermail;
@@ -25,27 +25,41 @@ export class HomeComponent implements OnInit{
   }
 
   ngOnInit(){
-    //logout
-    this.betService.winBets(this.token)
+    //lget daily bets
+    this.betService.getBets(this.token)
       .subscribe(data => {
         if(data !== null){
-          for(let prop in data){
-            this.bets.push({date: prop, result: data[prop]});
-          }
+          this.bets = data;
           //this.bets = data;
           console.log(this.bets);
         }
+      },
+      error => {
+        this.error = "Impossible de récupérer les pronostics du jour.";
       });
   }
 
   public cote(home, away, draw, score) : string {
     switch(score){
       case "1":
-          return home;
+        return home;
       case "2":
-          return away;
+        return away;
       case "N":
-          return draw;
+        return draw;
+    }
+  }
+
+  public scoreProno(team, win) : string {
+    switch(team){
+      case "home":
+        if(win == "1") return "W";
+        if(win == "2") return "L";
+        return "N";
+      case "away":
+        if(win == "1") return "L";
+        if(win == "2") return "W";
+        return "N";
     }
   }
 }

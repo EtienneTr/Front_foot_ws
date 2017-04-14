@@ -122,15 +122,64 @@
     <div class="row" *ngFor="let bet of bets">
       <div class="col-md-12 col-sm-12">
         <div class="ts-testimonial-content">
-          {{ bet.homeTeam - bet.awayTeam }}
-        </div><!-- Testimonial content end -->
+          <div class="row" *ngFor="let score of bet.result">
+            <div class="container">
+              <div class="row scoreRow">
 
-      </div><!-- End col-md-6 -->
+                <div class="col-md-4 teamLeft">
+                  <h4>{{ score.homeTeam }}</h4>
+                </div>
 
+                <div class="col-md-1 divLogo">
+                  <span class="center">
+                    <img class="scoreLogo" src="{{ score.homeTeamBadge }}"/>
+                  </span>
+                </div>
+
+                <div class="col-md-1 teamLeft">
+                  <h4 [ngClass]="{'winScore': (score.Result.goalsHomeTeam > score.Result.goalsAwayTeam),
+                                  'looseScore': (score.Result.goalsHomeTeam < score.Result.goalsAwayTeam),
+                                  'equalScore': (score.Result.goalsHomeTeam == score.Result.goalsAwayTeam)}" >
+                    {{ score.Result.goalsHomeTeam }}
+                  </h4>
+                </div>
+
+                <div class="col-md-1 teamRight">
+                  <h4 [ngClass]="{'winScore': (score.Result.goalsHomeTeam < score.Result.goalsAwayTeam),
+                                  'looseScore': (score.Result.goalsHomeTeam > score.Result.goalsAwayTeam),
+                                  'equalScore': (score.Result.goalsHomeTeam == score.Result.goalsAwayTeam)}" >
+                    {{ score.Result.goalsAwayTeam }}
+                  </h4>
+                </div>
+
+                <div class="col-md-1 divLogo">
+                  <span class="center">
+                    <img class="scoreLogo" src="{{ score.awayTeamBadge }}"/>
+                  </span>
+                </div>
+                <div class="col-md-4 teamRight">
+                  <h4>{{ score.awayTeam }}</h4>
+                </div>
+              </div><!-- END First ROW-->
+
+              <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4 cote">
+                  {{ score.competition }} - <h5>Cote : {{ cote(score.Odds.HomeBet, score.Odds.AwayBet, score.Odds.DrawBet, score.Result.matchResult) }}</h5>
+                </div>
+                <div class="col-md-4"></div>
+              </div>
+
+            </div>
+
+            <div class="ts-testimonial-date">
+              <h3 class="name">{{ bet.date | date:'dd-MM-yyyy'}}</h3>
+            </div>
+          </div><!-- Testimonial content end -->
+
+        </div><!-- End col-md-6 -->
+      </div>
     </div>
 
-
   </div>
-
-
 </section>

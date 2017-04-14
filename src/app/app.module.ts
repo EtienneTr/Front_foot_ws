@@ -18,6 +18,7 @@ import {ProfileComponent} from "./pages/profile/profile.component";
 import { User } from './models/user.model';
 import {SecurService} from "./services/secur.service";
 import {Bets} from "./models/bets.model";
+import {PronosComponent} from "./pages/pronos/pronos.component";
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import {Bets} from "./models/bets.model";
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    ProfileComponent
+    ProfileComponent,
+    PronosComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,76 @@
+<div id="banner-area">
+  <img src="../../../app/public/images/banner/banner-pronos.jpg" alt ="" />
+  <div class="parallax-overlay"></div>
+  <!-- Subpage title start -->
+  <div class="banner-title-content">
+    <div class="text-center">
+      <h2>Pronostics</h2>
+      <ul class="breadcrumb">
+        <li>Home</li>
+        <li><a href="#">pronos</a></li>
+      </ul>
+    </div>
+  </div><!-- Subpage title end -->
+</div><!-- Banner area end -->
+
+
+<!-- Bets ROW -->
+<div class="row">
+  <div class="col-md-12 col-sm-12">
+    <div class="ts-testimonial-content">
+      <div class="row" *ngFor="let score of bets">
+        <div class="container">
+          <div class="row scoreRow">
+
+            <div class="col-md-4 teamLeft">
+              <h4>{{ score.homeTeam }}</h4>
+            </div>
+
+            <div class="col-md-1 divLogo">
+                  <span class="center">
+                    <img class="scoreLogo" src="{{ score.homeTeamBadge }}"/>
+                  </span>
+            </div>
+
+            <div class="col-md-1 teamLeft">
+              <h4 [ngClass]="{'winScore': (score.winning == '1'),
+                                  'looseScore': (score.winning == '2'),
+                                  'equalScore': (score.winning == 'N')}" >
+                {{ scoreProno("home", score.winning) }}
+              </h4>
+            </div>
+
+            <div class="col-md-1 teamRight">
+              <h4 [ngClass]="{'winScore': (score.winning == '2'),
+                                  'looseScore': (score.winning == '1'),
+                                  'equalScore': (score.winning == 'N')}" >
+                {{ scoreProno("away", score.winning) }}
+              </h4>
+            </div>
+
+            <div class="col-md-1 divLogo">
+                  <span class="center">
+                    <img class="scoreLogo" src="{{ score.awayTeamBadge }}"/>
+                  </span>
+            </div>
+            <div class="col-md-4 teamRight">
+              <h4>{{ score.awayTeam }}</h4>
+            </div>
+          </div><!-- END First ROW-->
+
+          <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4 cote">
+              {{ score.competition }} - <h5>Cote : {{ cote(score.Odds.HomeBet, score.Odds.AwayBet, score.Odds.DrawBet, score.winning) }}</h5>
+            </div>
+            <div class="col-md-4"></div>
+          </div>
+
+        </div>
+
+      </div><!-- Testimonial content end -->
+
+    </div><!-- End col-md-6 -->
+  </div>
+</div>
+

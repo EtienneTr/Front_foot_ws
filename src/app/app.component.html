@@ -23,6 +23,7 @@
       <nav class="collapse navbar-collapse clearfix" role="navigation">
         <ul class="nav navbar-nav navbar-right">
           <li class="goHome"><a [routerLink]="['/']">Home</a></li>
+          <li *ngIf="logged"><a [routerLink]="['/pronos']">Pronostics</a></li>
           <li *ngIf="logged"><a [routerLink]="['/profile']">Profile</a></li>
           <li *ngIf="!logged"><a [routerLink]="['/login']">Connexion</a></li>
           <li *ngIf="logged"><a [routerLink]="['/login']">Déconnexion</a></li>
