@@ -16,6 +16,7 @@ export class PronosComponent implements OnInit{
   public usermail: string;
   public bets: Array<Object>;
   protected error: string;
+  date = "";
 
   constructor(private betService: BetService){
     var loggedUser = JSON.parse(localStorage.getItem("loggeduser"));
@@ -37,6 +38,7 @@ export class PronosComponent implements OnInit{
       error => {
         this.error = "Impossible de récupérer les pronostics du jour.";
       });
+    this.date = this.betService.getFormattedDate();
   }
 
   public cote(home, away, draw, score) : string {
