@@ -14,11 +14,14 @@ import {UserService} from "./services/user.service";
 import {BetService} from "./services/bet.service";
 import {RegisterComponent} from "./pages/register/register.component";
 import {ProfileComponent} from "./pages/profile/profile.component";
+import {ContactComponent} from "./pages/contact/contact.component";
 
 import { User } from './models/user.model';
 import {SecurService} from "./services/secur.service";
 import {Bets} from "./models/bets.model";
 import {PronosComponent} from "./pages/pronos/pronos.component";
+import {ContactService} from "./services/contact.service";
+import {Contact} from "./models/contact.model";
 
 @NgModule({
   declarations: [
@@ -27,7 +30,8 @@ import {PronosComponent} from "./pages/pronos/pronos.component";
     LoginComponent,
     RegisterComponent,
     ProfileComponent,
-    PronosComponent
+    PronosComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +46,9 @@ import {PronosComponent} from "./pages/pronos/pronos.component";
     UserService,
     User,
     Bets,
-    SecurService
+    SecurService,
+    ContactService,
+    Contact
   ],
   bootstrap: [ AppComponent ]
 })

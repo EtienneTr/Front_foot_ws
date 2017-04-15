@@ -1,0 +1,58 @@
+<div id="banner-area">
+  <img src="../../../app/public/images/banner/banner-contact.jpg" alt ="" />
+  <div class="parallax-overlay"></div>
+  <!-- Subpage title start -->
+  <div class="banner-title-content">
+    <div class="text-center">
+      <h2>COntactez-nous</h2>
+      <ul class="breadcrumb">
+        <li>Home</li>
+        <li><a href="#">contact</a></li>
+      </ul>
+    </div>
+  </div><!-- Subpage title end -->
+</div><!-- Banner area end -->
+
+<div class="container" id="formLogin">
+  <div class="row">
+      <div class="col-md-7">
+        <form id="contact-form" (ngSubmit)="onContactSubmit()" [formGroup]="contactForm">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>Email</label>
+              <input class="form-control" name="email" id="email" formControlName="email" placeholder="" type="email" required="">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>Objet</label>
+              <input class="form-control" name="subject" id="subject" formControlName="subject" placeholder="" required="">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea class="form-control" name="body" id="message" formControlName="body" placeholder="" rows="10" required=""></textarea>
+        </div>
+        <div class="text-right"><br>
+          <button class="btn btn-primary solid blank" type="submit">Envoyer</button>
+        </div>
+      </form>
+        <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+        <div *ngIf="success" class="alert alert-success">{{ success }}</div>
+      </div>
+      <div class="col-md-5">
+        <div class="contact-info">
+          <h3>Détails de contact</h3>
+          <p>Pour toutes questions concernant votre abonnement, merci de contacter notre banque au Bahamas.</p>
+          <br>
+          <p><i class="fa fa-home info"></i>  DailyPronos, 123 rue de Paris</p>
+        <p><i class="fa fa-phone info"></i>  +(785) 234-567 </p>
+        <p><i class="fa fa-envelope-o info"></i>  info@dailypronos.fr</p>
+        <p><i class="fa fa-globe info"></i>  www.dailypronos.fr</p>
+        </div>
+      </div>
+
+    </div>
+</div>
